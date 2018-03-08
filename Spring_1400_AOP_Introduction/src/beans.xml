@@ -1,0 +1,8 @@
+<beans>
+	<bean id="u" class="com.dao.impl.UserDAOImpl2" >
+		<!-- <log method="*"> -->
+	</bean>
+	<bean id="userService" class="com.service.UserService">
+		<property name="userDAO" bean="u" />
+	</bean>
+</beans>

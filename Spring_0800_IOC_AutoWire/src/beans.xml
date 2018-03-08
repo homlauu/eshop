@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+    
+<!-- 	<bean name ="userDAO" class="com.dao.impl.UserDAOImpl">
+		<property name="daoId" value="1"></property>
+	</bean> -->
+	
+	<bean name ="userDAO2" class="com.dao.impl.UserDAOImpl">
+		<property name="daoId" value="2"></property>
+	</bean>
+	
+	<!--scope 生存范围  默认:singleton 单例 ； prototype 原型 每次创建新的对象 -->
+	<bean id="userService" class="com.service.UserService" scope="prototype" autowire="byType">
+	</bean>
+
+</beans>

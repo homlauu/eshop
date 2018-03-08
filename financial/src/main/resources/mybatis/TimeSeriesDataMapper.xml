@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.financial.common.mapper.TimeSeriesDataMapper">
+	<insert id="insertBatch" parameterType="java.util.List">
+		<!-- <selectKey keyProperty=itemId resultType="java.lang.String" order="BEFORE"> 
+			select uuid() </selectKey> -->
+		insert into time_series_data (
+		item_id,trading_date,stock_code,item_value)
+		values
+		<foreach collection="list" item="item" index="index"
+			separator=",">
+			(
+			(select uuid() as item_id),
+			#{item.tradingDate},
+			#{item.stockCode},
+			#{item.itemValue}
+			)
+		</foreach>
+	</insert>
+</mapper>
